@@ -4,7 +4,6 @@ const axios = require('axios');
 const multer = require('multer');
 
 const app = express();
-app.set('view engine', 'ejs');
 
 app.use(express.json());
 app.use(express.urlencoded());
