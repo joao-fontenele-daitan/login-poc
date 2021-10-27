@@ -22,7 +22,8 @@ app.post('/api/login',  upload.none(), async (req, res) => {
         const { data } = await axios.post('http://localhost:8888/login', { apikey });
 
         const { sessionID } = data;
-        return res.render('login', { sessionID });
+        res.cookie('sessionID', sessionID);
+        return res.redirect('/');
     } catch (e) {
         console.log('failed to login', e)
         return res.redirect('http://localhost:4000/login');
