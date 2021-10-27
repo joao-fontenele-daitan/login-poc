@@ -29,6 +29,8 @@ export default function Home() {
         }
     };
 
+
+    const apikey = localStorage.getItem('apikey');
     const userLoggedIn = isLogged();
     return (
         <div>
@@ -36,6 +38,11 @@ export default function Home() {
                 <>
                     <p>Welcome to the home page logged user</p>
                     <button onClick={onClick}>Validate Login</button>
+                    <br />
+                    <form action="http://localhost:3000/api/login" method="post" name="cloudsync-login">
+                        <input type="hidden" name="apikey" value={apikey}/>
+                        <button type="submit">Access Cloud Sync</button>
+                    </form>
                 </>
             )}
             {!userLoggedIn && (
