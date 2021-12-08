@@ -39,7 +39,13 @@ export default function Home() {
                     <p>Welcome to the home page logged user</p>
                     <button onClick={onClick}>Validate Login</button>
                     <br />
-                    <form target="_blank" action="http://localhost:8888/login" method="post" name="cloudsync-login">
+                    <form
+                        target="_blank" // open a new tab
+                        action="http://localhost:8888/login" // cloud sync login route
+                        method="post" // method of the login route
+                        // encType="multipart/form-data" // real cloud sync app accepts form data only
+                        name="cloudsync-login"
+                    >
                         <input type="hidden" name="apikey" value={apikey}/>
                         <button type="submit">Access Cloud Sync</button>
                     </form>
